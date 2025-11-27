@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact – Emagine Design Studio</title>
+    <meta name="description" content="Start a conversation with Emagine Design Studio regarding architectural visualization projects.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Manrope:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dgkzpcvc9/image/upload/v1764220967/EMAGINE_32_32_icon-01_virnm5.svg">
+
+    <style>
+        /* --- 1. GLOBAL RESET --- */
+        * { box-sizing: border-box; }
+        
+        /* SCROLL FIX: Set to auto to let JS handle physics */
+        html { 
+            scroll-behavior: auto; 
+            scroll-padding-top: 180px; 
+        }
+        
+        body {
+            background-color: #0D0D0D; 
+            color: #F4F4F4; 
+            font-family: 'Manrope', sans-serif;
+            margin: 0; padding: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased; /* iPhone Polish */
+        }
+
+        /* UPGRADE: Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0D0D0D; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+        /* UPGRADE: Brand Selection Color */
+        ::selection { background: #D4C5B5; color: #000; }
+        
+        /* UPGRADE: Remove Mobile Tap Highlight */
+        a { -webkit-tap-highlight-color: transparent; }
+
+        h1, h2, h3, h4 {
+            font-family: 'Inter', sans-serif;
+            color: #F4F4F4;
+            font-weight: 300; 
+            margin-top: 0;
+            letter-spacing: -0.5px;
+        }
+        a { text-decoration: none; color: #F4F4F4; transition: color 0.3s ease; }
+        a:hover { color: #D4C5B5; }
+
+        /* --- 2. NAVIGATION --- */
+        .nav-bar {
+            position: fixed; top: 0; left: 0; width: 100%; height: 160px; padding: 0 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: #0D0D0D; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .logo-link img { height: 120px; width: auto; display: block; }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
+        .nav-links a.active { color: #D4C5B5; }
+
+        /* Mobile Menu */
+        .mobile-menu-btn { display: none; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; z-index: 2001; }
+        .mobile-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background-color: #0D0D0D; z-index: 2000;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+        }
+        .mobile-overlay.active { opacity: 1; pointer-events: all; }
+        .mobile-overlay a { font-size: 24px; margin: 20px 0; text-transform: uppercase; letter-spacing: 3px; }
+
+        /* --- 3. CONTACT LAYOUT --- */
+        .contact-section {
+            padding-top: 240px;
+            padding-bottom: 150px;
+            padding-left: 5%;
+            padding-right: 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr; /* Narrow Left, Wide Right */
+            gap: 100px;
+        }
+
+        /* Left Column: Direct Info */
+        .direct-info h1 {
+            font-size: clamp(36px, 5vw, 48px);
+            margin-bottom: 60px;
+            line-height: 1.1;
+        }
+        .info-block { margin-bottom: 50px; }
+        .info-block h4 {
+            font-size: 12px;
+            color: #D4C5B5;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+        .info-block a {
+            font-size: 20px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        /* Socials in Layout */
+        .contact-socials { display: flex; gap: 20px; margin-top: 60px; }
+        .contact-socials img { width: 24px; height: 24px; opacity: 0.6; transition: opacity 0.3s; }
+        .contact-socials img:hover { opacity: 1; }
+
+        /* Right Column: The Form */
+        .form-container {
+            background-color: #111;
+            padding: 60px;
+            border: 1px solid #222;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .form-group { margin-bottom: 30px; }
+        
+        label {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #333;
+            color: #FFF;
+            padding: 10px 0;
+            font-family: 'Manrope', sans-serif;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-bottom-color: #D4C5B5;
+        }
+        /* Custom Select Style fix */
+        select { -webkit-appearance: none; border-radius: 0; background-color: transparent; }
+        select option { background-color: #111; color: #FFF; }
+        
+        .submit-btn {
+            background-color: #FFF;
+            color: #0D0D0D;
+            border: none;
+            padding: 15px 40px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover { background-color: #D4C5B5; }
+
+        .upload-note {
+            font-size: 13px;
+            color: #666;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* --- 4. GUIDE SECTION --- */
+        .guide-section {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-top: 1px solid #222;
+        }
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+        }
+        .guide-item h3 { font-size: 18px; margin-bottom: 20px; color: #FFF; }
+        .guide-item p { font-size: 14px; color: #999; line-height: 1.7; }
+        .guide-item ul { padding-left: 20px; color: #999; font-size: 14px; }
+        .guide-item li { margin-bottom: 5px; }
+
+        /* Footer Simple */
+        .simple-footer {
+            padding: 40px 5%;
+            border-top: 1px solid #222;
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .nav-bar { height: 100px; padding: 0 20px; }
+            .logo-link img { height: 60px; }
+            .nav-links { display: none; } 
+            .mobile-menu-btn { display: block; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+            .form-container { padding: 30px; }
+            .guide-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="nav-bar">
+        <div class="logo-link">
+            <a href="index.html">
+                <img src="https://res.cloudinary.com/dgkzpcvc9/image/upload/v1764220940/EMAGINE_3000_3000-01_to7fwg.svg" alt="Emagine Logo">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="work.html">Work</a>
+            <a href="about.html">Studio</a>
+            <a href="index.html#services-section" class="smooth-scroll-link">Services</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+        <div class="mobile-menu-btn" onclick="toggleMenu()">MENU</div>
+    </header>
+
+    <div class="mobile-overlay" id="mobileOverlay">
+        <div class="mobile-menu-btn" style="position: absolute; top: 40px; right: 20px;" onclick="toggleMenu()">CLOSE</div>
+        <a href="work.html">Work</a>
+        <a href="about.html">Studio</a>
+        <a href="index.html#services-section" onclick="toggleMenu()">Services</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <section class="contact-section">
+        <div class="contact-grid">
+            
+            <div class="direct-info">
+                <h1>Start a conversation.</h1>
+                
+                <div class="info-block">
+                    <h4>New Business</h4>
+                    <a href="mailto:hello@emagine3d.com">hello@emagine3d.com</a>
+                </div>
+
+                <div class="info-block">
+                    <h4>Join the Collective</h4>
+                    <a href="mailto:careers@emagine3d.com">careers@emagine3d.com</a>
+                </div>
+
+                <div class="contact-socials">
+                    <a href="#"><img src="https://res.cloudinary.com/dgkzpcvc9/image/upload/v1764226087/icons8-whatsapp-50_wgyhaq.svg" alt="WhatsApp"></a>
+                    <a href="#"><img src="https://res.cloudinary.com/dgkzpcvc9/image/upload/v1764226078/icons8-instagram-50_ofzlb9.svg" alt="Instagram"></a>
+                    <a href="#"><img src="https://res.cloudinary.com/dgkzpcvc9/image/upload/v1764226074/icons8-facebook-50_qkzctw.svg" alt="Facebook"></a>
+                    <a href="#"><img src="https://res.cloudinary.com/dgkzpcvc9/image/upload/v1764226083/icons8-linkedin-50_be7tpm.svg" alt="LinkedIn"></a>
+                    <a href="#"><img src="https://res.cloudinary.com/dgkzpcvc9/image/upload/v1764226063/icons8-behance-50_dzqv1z.svg" alt="Behance"></a>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    
+                    <input type="hidden" name="access_key" value="d596c6c6-ad9b-4461-a741-ab51f7b18ef9">
+                    <input type="hidden" name="subject" value="New Project Inquiry - Website">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="name" required placeholder="John">
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="lastname" required placeholder="Doe">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Work Email</label>
+                            <input type="email" name="email" required placeholder="name@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Company / Studio</label>
+                            <input type="text" name="company" placeholder="Studio Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Project Type</label>
+                        <select name="project_type">
+                            <option value="Residential">Residential Development</option>
+                            <option value="Commercial">Commercial / Mixed Use</option>
+                            <option value="Competition">Architectural Competition</option>
+                            <option value="Product">Product / Furniture</option>
+                            <option value="Other">Other Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Project Brief</label>
+                        <textarea name="message" rows="5" placeholder="Tell us about the scale, timeline, and deliverables..."></textarea>
+                    </div>
+
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <button type="submit" class="submit-btn">Send Proposal Request</button>
+                    
+                    <p class="upload-note">* We will provide a secure upload link for heavy architectural models in our follow-up email.</p>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="guide-section">
+        <div class="guide-grid">
+            <div class="guide-item">
+                <h3>Architectural Plans</h3>
+                <p>To provide an accurate proposal, we need a general understanding of the project scale. CAD drawings, PDF sets, or massing models help us estimate the complexity.</p>
+            </div>
+            <div class="guide-item">
+                <h3>Project Timeline</h3>
+                <p>When are you planning to launch sales or submit for competition? Knowing your deadlines allows us to allocate the right team size to your project.</p>
+            </div>
+            <div class="guide-item">
+                <h3>Information Availability</h3>
+                <p>What assets will you provide?</p>
+                <ul>
+                    <li>3D Model</li>
+                    <li>Landscape Plans</li>
+                    <li>Material Specifications (FF&E)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="simple-footer">
+        © 2025 Emagine Design Studio · <a href="privacy.html" style="color:#555">Privacy</a> · <a href="terms.html" style="color:#555">Terms</a>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const overlay = document.getElementById('mobileOverlay');
+            overlay.classList.toggle('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('a[href^="#"], .smooth-scroll-link');
+            const headerOffset = 160;
+
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href.startsWith('#') && href.length > 1) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        smoothScrollTo(targetId);
+                    }
+                });
+            });
+
+            window.smoothScrollTo = function(targetId) {
+                const targetElement = document.getElementById(targetId);
+                if (!targetElement) return;
+                
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const startPosition = window.pageYOffset;
+                const offsetPosition = elementPosition + startPosition - headerOffset - 20; 
+                
+                const duration = 2000; 
+                let startTime = null;
+
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const run = easeInOutQuint(timeElapsed, startPosition, offsetPosition - startPosition, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                }
+
+                function easeInOutQuint(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t * t * t * t + b;
+                    t -= 2;
+                    return c / 2 * (t * t * t * t * t + 2) + b;
+                }
+
+                requestAnimationFrame(animation);
+            };
+        });
+    </script>
+
+</body>
+</html>
