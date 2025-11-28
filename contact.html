@@ -147,7 +147,7 @@
         .contact-socials img { width: 24px; height: 24px; opacity: 0.6; transition: opacity 0.3s; }
         .contact-socials img:hover { opacity: 1; }
         
-        /* Download Brief Button */
+        /* Download Brief Button - Clean HTML Link */
         .download-btn {
             display: inline-block;
             margin-top: 40px;
@@ -303,9 +303,9 @@
                     <a href="mailto:careers@emagine3d.com">careers@emagine3d.com</a>
                 </div>
 
-                <div onclick="downloadBrief()" class="download-btn">
+                <a href="brief.pdf" download="Emagine_Project_Brief.pdf" class="download-btn" style="text-decoration: none;">
                     ↓ Download Project Brief PDF
-                </div>
+                </a>
 
                 <div class="contact-socials">
                     <a href="#" aria-label="WhatsApp"><img src="https://res.cloudinary.com/dgkzpcvc9/image/upload/v1764226087/icons8-whatsapp-50_wgyhaq.svg" alt="WhatsApp"></a>
@@ -406,11 +406,6 @@
         function toggleMenu() {
             const overlay = document.getElementById('mobileOverlay');
             overlay.classList.toggle('active');
-        }
-        
-        function downloadBrief() {
-            // Placeholder: In future, replace with real PDF link
-            alert("The Project Brief PDF will be available to download shortly. Please email us directly for the template.");
         }
 
         document.addEventListener('DOMContentLoaded', () => {
