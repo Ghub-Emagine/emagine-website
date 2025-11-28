@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found – Emagine Design Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Manrope:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dgkzpcvc9/image/upload/v1764220967/EMAGINE_32_32_icon-01_virnm5.svg">
+    <title>404 – Emagine Design Studio</title>
+    
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/dgkzpcvc9/image/upload/v1764220967/EMAGINE_32_32_icon-01_virnm5.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Manrope:wght@300&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. GLOBAL RESET & FERRARI VISUALS --- */
         * { box-sizing: border-box; }
-        
         body {
-            background-color: #0D0D0D; 
-            color: #F4F4F4; 
-            font-family: 'Manrope', sans-serif;
+            background-color: #0D0D0D;
+            color: #F4F4F4;
+            font-family: 'Inter', sans-serif;
             margin: 0; padding: 0;
             height: 100vh;
             display: flex;
@@ -22,56 +22,70 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
         }
 
-        /* UPGRADE: Brand Selection Color */
-        ::selection { background: #D4C5B5; color: #000; }
-        
-        /* UPGRADE: Remove Mobile Tap Highlight */
-        a { -webkit-tap-highlight-color: transparent; }
+        /* The Big "404" */
+        .error-code {
+            font-size: clamp(100px, 20vw, 250px);
+            font-weight: 300;
+            line-height: 1;
+            letter-spacing: -5px;
+            color: #1a1a1a; /* Very subtle dark grey */
+            user-select: none;
+            position: absolute;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
 
         h1 {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(100px, 15vw, 200px);
-            font-weight: 300;
-            color: #1A1A1A; /* Very subtle dark grey */
-            margin: 0;
-            line-height: 0.8;
-        }
-        h2 {
             font-size: 24px;
-            margin-top: -20px;
-            margin-bottom: 20px;
             font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
+
         p {
+            font-family: 'Manrope', sans-serif;
             color: #999;
             margin-bottom: 40px;
+            font-size: 16px;
         }
+
         .home-btn {
             display: inline-block;
-            padding: 15px 40px;
-            border: 1px solid rgba(244,244,244, 0.3);
-            color: #F4F4F4;
+            padding: 15px 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #FFF;
             text-decoration: none;
             text-transform: uppercase;
             font-size: 12px;
             letter-spacing: 2px;
             transition: all 0.3s ease;
         }
+
         .home-btn:hover {
             background-color: #F4F4F4;
             color: #0D0D0D;
+            border-color: #F4F4F4;
         }
     </style>
 </head>
 <body>
 
-    <h1>404</h1>
-    <h2>Page Not Found</h2>
-    <p>The architectural detail you are looking for does not exist.</p>
-    <a href="index.html" class="home-btn">Return to Studio</a>
+    <div class="error-code">404</div>
+
+    <div class="content">
+        <h1>Void</h1>
+        <p>The page you are looking for does not exist.</p>
+        <a href="index.html" class="home-btn">Return to Studio</a>
+    </div>
 
 </body>
 </html>
