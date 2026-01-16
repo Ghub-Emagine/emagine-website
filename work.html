@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work – Emagine Design Studio</title>
+    <title>Selected Work – Emagine Design Studio</title>
     
-    <meta name="description" content="A curated collection of cinematic architectural visualization projects by Emagine Design Studio. Exterior, Interior, and Conceptual narratives.">
-    <meta name="keywords" content="Architectural Visualization Portfolio, 3D Rendering Projects, ArchViz Gallery, Luxury Real Estate Renders, Emagine Design Studio Work">
+    <meta name="description" content="Architectural visualisation created for sales launches, approvals, and early-stage decision making. View our selected developer work.">
+    <meta name="keywords" content="Real Estate Marketing, Developer Visuals, 3D Rendering, Sales Launch, Architectural Visualization, Property Marketing">
     <meta name="author" content="Emagine Design Studio">
     <link rel="canonical" href="https://www.emagine3d.com/work.html">
     <meta name="robots" content="index, follow">
@@ -14,15 +14,15 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.emagine3d.com/work.html">
     <meta property="og:site_name" content="Emagine Design Studio">
-    <meta property="og:title" content="Work – Emagine Design Studio">
-    <meta property="og:description" content="Cinematic narratives and architectural explorations. View our curated portfolio.">
+    <meta property="og:title" content="Selected Work – Emagine Design Studio">
+    <meta property="og:description" content="Visual assets designed to support early sales and investor communication.">
     <meta property="og:image" content="https://res.cloudinary.com/dgkzpcvc9/image/upload/f_auto,q_auto,w_1200/v1764213795/Performing_Arts_Center_in_Shenzhen_czhx1i.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Work – Emagine Design Studio">
-    <meta name="twitter:description" content="Cinematic narratives and architectural explorations. View our curated portfolio.">
+    <meta name="twitter:title" content="Selected Work – Emagine Design Studio">
+    <meta name="twitter:description" content="Visual assets designed to support early sales and investor communication.">
     <meta name="twitter:image" content="https://res.cloudinary.com/dgkzpcvc9/image/upload/f_auto,q_auto,w_1200/v1764213795/Performing_Arts_Center_in_Shenzhen_czhx1i.jpg">
 
     <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/dgkzpcvc9/image/upload/v1764220967/EMAGINE_32_32_icon-01_virnm5.svg">
@@ -44,8 +44,8 @@
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
-      "name": "Work - Emagine Design Studio",
-      "description": "Portfolio of architectural visualization projects.",
+      "name": "Selected Work - Emagine Design Studio",
+      "description": "Portfolio of architectural visualization for real estate sales and approvals.",
       "url": "https://www.emagine3d.com/work.html",
       "publisher": {
         "@type": "LocalBusiness",
@@ -58,7 +58,6 @@
         /* --- 1. GLOBAL RESET & TYPOGRAPHY --- */
         * { box-sizing: border-box; }
         
-        /* SCROLL FIX: Set to auto to let JS handle physics */
         html { 
             scroll-behavior: auto; 
             scroll-padding-top: 180px; 
@@ -71,19 +70,16 @@
             margin: 0; padding: 0;
             overflow-x: hidden;
             line-height: 1.5;
-            -webkit-font-smoothing: antialiased; /* iPhone Polish */
+            -webkit-font-smoothing: antialiased; 
         }
 
-        /* UPGRADE: Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0D0D0D; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #555; }
 
-        /* UPGRADE: Brand Selection Color */
         ::selection { background: #D4C5B5; color: #000; }
         
-        /* UPGRADE: Remove Mobile Tap Highlight */
         a { -webkit-tap-highlight-color: transparent; }
 
         h1, h2, h3, h4 {
@@ -120,7 +116,6 @@
         }
         .nav-links a.active { color: #D4C5B5; }
 
-        /* Mobile Menu */
         .mobile-menu-btn { display: none; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; z-index: 2001; }
         .mobile-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
@@ -136,8 +131,10 @@
             padding-top: 240px; 
             padding-bottom: 120px;
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
         }
         .work-header h1 {
             font-size: clamp(32px, 4vw, 48px);
@@ -145,9 +142,12 @@
             margin-bottom: 20px;
         }
         .work-header p {
-            font-size: 16px;
-            color: #9CA3AF;
+            font-size: 18px;
+            color: #E5E5E5;
             line-height: 1.6;
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .gallery-container {
@@ -157,19 +157,15 @@
             padding-bottom: 150px;
         }
 
-        /* ROW STYLES & REVEAL ANIMATION */
         .gallery-row {
             margin-bottom: 120px; 
             width: 100%;
-            transform: translateZ(0); /* GPU Boost */
-            
-            /* Reveal Animation Config */
+            transform: translateZ(0); 
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
         }
         
-        /* The class JS adds to make it appear */
         .gallery-row.visible {
             opacity: 1;
             transform: translateY(0);
@@ -199,7 +195,6 @@
             background-color: #111; 
         }
 
-        /* IMAGE PERFORMANCE */
         .gallery-img {
             width: 100%;
             height: 100%;
@@ -211,10 +206,10 @@
         
         .row-full:hover .gallery-img, 
         .split-item:hover .gallery-img {
-            transform: scale(1.02); /* Subtle luxurious zoom */
+            transform: scale(1.02); 
         }
 
-        /* CAPTIONS */
+        /* CAPTIONS - UPDATED FOR COMMERCIAL INFO */
         .caption-hover {
             position: absolute;
             bottom: 30px;
@@ -223,12 +218,25 @@
             transition: opacity 0.4s ease;
             z-index: 2;
             pointer-events: none;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
         }
         .row-full:hover .caption-hover,
         .split-item:hover .caption-hover { opacity: 1; }
         
-        .caption-hover h3 { font-size: 18px; margin: 0; color: #FFF; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
-        .caption-hover span { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #D4C5B5; }
+        .caption-hover h3 { font-size: 20px; margin: 0 0 5px 0; color: #FFF; font-weight: 500; }
+        .caption-hover span { 
+            font-size: 13px; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            color: #D4C5B5; 
+            display: block;
+            margin-bottom: 2px;
+        }
+        .caption-hover .usage-tag {
+            font-size: 11px;
+            color: #999;
+            letter-spacing: 1px;
+        }
 
         /* --- 4. LIGHTBOX --- */
         .lightbox {
@@ -281,7 +289,6 @@
         #mc_embed_signup input[type="submit"] { background: transparent; color: #F4F4F4; border: none; padding: 10px 0; margin-top: 15px; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; cursor: pointer; text-align: left; }
         #mc_embed_signup input[type="submit"]:hover { color: #D4C5B5; }
 
-        /* Responsive */
         @media (max-width: 900px) {
             .nav-bar { height: 100px; padding: 0 20px; }
             .logo-link img { height: 60px; }
@@ -295,13 +302,6 @@
             .row-full { height: 60vh; }
         }
     </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8PEMJBJYE5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-8PEMJBJYE5');
-</script>
 </head>
 <body>
 
@@ -314,7 +314,7 @@
         <nav class="nav-links">
             <a href="work.html" class="active">Work</a>
             <a href="about.html">Studio</a>
-            <a href="index.html#services-section" class="smooth-scroll-link">Services</a>
+            <a href="index.html#solutions">Services</a>
             <a href="contact.html">Contact</a>
         </nav>
         <div class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle Menu">MENU</div>
@@ -324,13 +324,13 @@
         <div class="mobile-menu-btn" style="position: absolute; top: 40px; right: 20px;" onclick="toggleMenu()">CLOSE</div>
         <a href="work.html">Work</a>
         <a href="about.html">Studio</a>
-        <a href="index.html#services-section" onclick="toggleMenu()">Services</a>
+        <a href="index.html#solutions" onclick="toggleMenu()">Services</a>
         <a href="contact.html">Contact</a>
     </div>
 
     <div class="work-header">
-        <h1>Curated Projects</h1>
-        <p>A selection of cinematic narratives and architectural explorations.</p>
+        <h1>Selected Work</h1>
+        <p>Architectural visualisation created for sales launches, approvals, and early-stage decision making.</p>
     </div>
 
     <div class="gallery-container">
@@ -346,7 +346,11 @@
                 class="gallery-img" 
                 alt="Shenzhen Center" 
                 decoding="async">
-            <div class="caption-hover"><h3>Shenzhen Arts Center</h3><span>Competition / Cultural</span></div>
+            <div class="caption-hover">
+                <h3>Shenzhen Arts Center</h3>
+                <span>Cultural Development</span>
+                <div class="usage-tag">International Competition • Design Approval</div>
+            </div>
         </div>
 
         <div class="gallery-row row-split reveal-item">
@@ -362,7 +366,11 @@
                     alt="Lebanon" 
                     loading="lazy" 
                     decoding="async">
-                <div class="caption-hover"><h3>Lebanon Hampshire</h3><span>Residential</span></div>
+                <div class="caption-hover">
+                    <h3>Lebanon Hampshire</h3>
+                    <span>Residential Development</span>
+                    <div class="usage-tag">Sales Launch • Exterior</div>
+                </div>
             </div>
             <div class="split-item" onclick="openLightbox(this)">
                 <img 
@@ -376,7 +384,11 @@
                     alt="Letovo" 
                     loading="lazy" 
                     decoding="async">
-                <div class="caption-hover"><h3>Letovo Center</h3><span>Institutional</span></div>
+                <div class="caption-hover">
+                    <h3>Letovo Center</h3>
+                    <span>Institutional</span>
+                    <div class="usage-tag">Design Approval • Public</div>
+                </div>
             </div>
         </div>
 
@@ -392,7 +404,11 @@
                 alt="Shenzhen Arts" 
                 loading="lazy" 
                 decoding="async">
-            <div class="caption-hover"><h3>Shenzhen Arts</h3><span>Atmosphere Study</span></div>
+            <div class="caption-hover">
+                <h3>Shenzhen Arts</h3>
+                <span>Atmosphere & Light</span>
+                <div class="usage-tag">Concept • Investor Visuals</div>
+            </div>
         </div>
 
         <div class="gallery-row row-split reveal-item">
@@ -408,7 +424,11 @@
                     alt="Shenzhen Detail" 
                     loading="lazy" 
                     decoding="async">
-                <div class="caption-hover"><h3>Shenzhen Detail</h3><span>Materiality</span></div>
+                <div class="caption-hover">
+                    <h3>Shenzhen Detail</h3>
+                    <span>Facade Materiality</span>
+                    <div class="usage-tag">Technical Close-up</div>
+                </div>
             </div>
             <div class="split-item" onclick="openLightbox(this)">
                 <img 
@@ -422,7 +442,11 @@
                     alt="Inzovu" 
                     loading="lazy" 
                     decoding="async">
-                <div class="caption-hover"><h3>Inzovu Mall</h3><span>Retail</span></div>
+                <div class="caption-hover">
+                    <h3>Inzovu Mall</h3>
+                    <span>Retail Development</span>
+                    <div class="usage-tag">Marketing • Commercial</div>
+                </div>
             </div>
         </div>
 
@@ -438,7 +462,11 @@
                 alt="Tower C" 
                 loading="lazy" 
                 decoding="async">
-            <div class="caption-hover"><h3>Tower C</h3><span>Skyscraper / Zaha Hadid</span></div>
+            <div class="caption-hover">
+                <h3>Tower C</h3>
+                <span>Mixed-Use Skyscraper</span>
+                <div class="usage-tag">International Competition • Zaha Hadid</div>
+            </div>
         </div>
 
         <div class="gallery-row row-split reveal-item">
@@ -454,7 +482,11 @@
                     alt="Hampshire Detail" 
                     loading="lazy" 
                     decoding="async">
-                <div class="caption-hover"><h3>Hampshire Detail</h3><span>Exterior</span></div>
+                <div class="caption-hover">
+                    <h3>Hampshire Detail</h3>
+                    <span>Residential</span>
+                    <div class="usage-tag">Exterior Close-up</div>
+                </div>
             </div>
             <div class="split-item" onclick="openLightbox(this)">
                 <img 
@@ -468,7 +500,11 @@
                     alt="Vilamoura" 
                     loading="lazy" 
                     decoding="async">
-                <div class="caption-hover"><h3>Vilamoura Resort</h3><span>Hospitality</span></div>
+                <div class="caption-hover">
+                    <h3>Vilamoura Resort</h3>
+                    <span>Hospitality Development</span>
+                    <div class="usage-tag">Investor Pitch</div>
+                </div>
             </div>
         </div>
 
@@ -484,7 +520,11 @@
                 alt="Butrint" 
                 loading="lazy" 
                 decoding="async">
-            <div class="caption-hover"><h3>Butrint National Park</h3><span>Landscape</span></div>
+            <div class="caption-hover">
+                <h3>Butrint National Park</h3>
+                <span>Landscape Masterplan</span>
+                <div class="usage-tag">Contextual Visualization</div>
+            </div>
         </div>
 
         <div class="gallery-row row-split reveal-item">
@@ -500,7 +540,11 @@
                     alt="Inzovu" 
                     loading="lazy" 
                     decoding="async">
-                <div class="caption-hover"><h3>Inzovu</h3><span>Concept</span></div>
+                <div class="caption-hover">
+                    <h3>Inzovu Interior</h3>
+                    <span>Commercial Concept</span>
+                    <div class="usage-tag">Sales Visuals</div>
+                </div>
             </div>
             <div class="split-item" onclick="openLightbox(this)">
                 <img 
@@ -514,7 +558,11 @@
                     alt="Ardennes" 
                     loading="lazy" 
                     decoding="async">
-                <div class="caption-hover"><h3>Ardennes Workshop</h3><span>Commercial</span></div>
+                <div class="caption-hover">
+                    <h3>Ardennes Workshop</h3>
+                    <span>Commercial / Industrial</span>
+                    <div class="usage-tag">Design Competition</div>
+                </div>
             </div>
         </div>
 
@@ -530,7 +578,11 @@
                 alt="Tower Zaha" 
                 loading="lazy" 
                 decoding="async">
-            <div class="caption-hover"><h3>Tower C Detail</h3><span>Mixed Use</span></div>
+            <div class="caption-hover">
+                <h3>Tower C Detail</h3>
+                <span>Mixed-Use</span>
+                <div class="usage-tag">Concept Detail</div>
+            </div>
         </div>
 
     </div>
