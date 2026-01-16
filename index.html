@@ -96,12 +96,12 @@
         }
         a:hover { color: #D4C5B5; }
 
-        /* --- 2. NAVIGATION --- */
+        /* --- 2. NAVIGATION (UPDATED) --- */
         .nav-bar {
             position: fixed;
             top: 0; left: 0;
             width: 100%;
-            height: 120px; /* Reduced slightly for business feel */
+            height: 120px; 
             padding: 0 5%;
             display: flex;
             justify-content: space-between;
@@ -127,7 +127,7 @@
         .mobile-overlay.active { opacity: 1; pointer-events: all; }
         .mobile-overlay a { font-size: 24px; margin: 20px 0; text-transform: uppercase; letter-spacing: 3px; }
 
-        /* --- 3. HERO SECTION (UPDATED) --- */
+        /* --- 3. HERO SECTION --- */
         .hero-section {
             position: relative;
             width: 100%;
@@ -187,14 +187,14 @@
         .section-label { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #D4C5B5; display: block; margin-bottom: 10px; }
         .section-title { font-size: clamp(28px, 3vw, 42px); color: #F4F4F4; margin: 0; }
         
-        /* --- 5. "WHO WE WORK WITH" (CARDS) --- */
+        /* --- 5. WHO WE WORK WITH --- */
         .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .feature-card { background: #111; padding: 40px; border: 1px solid #222; transition: border-color 0.3s; }
         .feature-card:hover { border-color: #444; }
         .feature-card h3 { font-size: 20px; margin-bottom: 15px; color: #FFF; }
         .feature-card p { font-size: 15px; line-height: 1.6; color: #999; margin: 0; }
 
-        /* --- 6. "THE PROBLEM" (LIST) --- */
+        /* --- 6. THE PROBLEM (LIST) --- */
         .problem-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: start; }
         .problem-list { list-style: none; padding: 0; margin: 0; }
         .problem-list li {
@@ -205,19 +205,18 @@
             content: "×"; position: absolute; left: 0; color: #D4C5B5; font-size: 24px; line-height: 24px; top: -2px;
         }
 
-        /* --- 7. "THE SOLUTION" (DELIVERABLES) --- */
-        /* Re-using cards-grid but with distinct styling if needed */
+        /* --- 7. SOLUTIONS --- */
         .solution-card h3 { color: #D4C5B5; }
 
-        /* --- 8. SERVICES (SIMPLE LIST) --- */
+        /* --- 8. SERVICES (LIST) --- */
         .services-list-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; border-top: 1px solid #333; padding-top: 40px; }
         .service-item h4 { font-size: 18px; color: #FFF; margin-bottom: 10px; }
         .service-item p { font-size: 14px; color: #888; }
 
-        /* --- 9. EXPERIENCE / SOCIAL PROOF --- */
+        /* --- 9. EXPERIENCE --- */
         .experience-text { font-size: 24px; line-height: 1.4; color: #FFF; max-width: 900px; font-weight: 300; }
 
-        /* --- 10. FINAL CTA BANNER --- */
+        /* --- 10. FINAL CTA --- */
         .final-cta-section { text-align: center; padding: 120px 20px; background: #111; }
         .final-cta-section h2 { font-size: clamp(32px, 4vw, 56px); margin-bottom: 20px; }
         .final-cta-section p { max-width: 600px; margin: 0 auto 40px auto; font-size: 18px; }
@@ -241,7 +240,14 @@
             .footer-bottom { flex-direction: column; gap: 10px; }
         }
     </style>
-    </head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PEMJBJYE5"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8PEMJBJYE5');
+    </script>
+</head>
 <body>
 
     <header class="nav-bar">
@@ -251,18 +257,20 @@
             </a>
         </div>
         <nav class="nav-links">
-            <a href="#work">Work</a>
-            <a href="#solutions">Solutions</a>
-            <a href="#contact">Contact</a>
+            <a href="work.html">Work</a>
+            <a href="about.html">Studio</a>
+            <a href="#solutions" class="smooth-scroll-link">Solutions</a>
+            <a href="contact.html">Contact</a>
         </nav>
         <div class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle Menu">MENU</div>
     </header>
 
     <div class="mobile-overlay" id="mobileOverlay">
         <div class="mobile-menu-btn" style="position: absolute; top: 40px; right: 20px;" onclick="toggleMenu()">CLOSE</div>
-        <a href="#work" onclick="toggleMenu()">Work</a>
-        <a href="#solutions" onclick="toggleMenu()">Solutions</a>
-        <a href="#contact" onclick="toggleMenu()">Contact</a>
+        <a href="work.html">Work</a>
+        <a href="about.html">Studio</a>
+        <a href="#solutions" onclick="toggleMenu(); smoothScrollTo('solutions');">Solutions</a>
+        <a href="contact.html">Contact</a>
     </div>
 
     <section class="hero-section">
@@ -415,6 +423,36 @@
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             observer.observe(el);
+        });
+
+        // Smooth Scroll Helper
+        function smoothScrollTo(id) {
+            const element = document.getElementById(id);
+            if(element) {
+                const headerOffset = 140;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                     top: offsetPosition,
+                     behavior: "smooth"
+                });
+            }
+        }
+
+        // Desktop Smooth Scroll for #links
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('a.smooth-scroll-link');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+                        const id = href.substring(1);
+                        smoothScrollTo(id);
+                    }
+                });
+            });
         });
     </script>
 </body>
